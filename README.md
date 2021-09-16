@@ -12,3 +12,6 @@ For now have 4 option:
 * you can delete a task
 * you can edit the subtasks of a task
 * you can complete a task or a subtask of a task
+
+## Disclaimer
+For now, don't have manage of exception and stuff like that, only for files that you can't found
