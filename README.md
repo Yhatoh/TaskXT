@@ -1,4 +1,4 @@
-# TaskXT 0.3
+# TaskXT 0.1
 Little proyect to organize myself, but maybe can help someone else
 
 ## Idea
