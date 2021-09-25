@@ -224,26 +224,29 @@ def complete_task():
           print(Fore.RED + "The task doesn't exist, try again" + Fore.WHITE)
           continue
 
-        read_subtasks = open("tasks/" + task_to_complete +".txt", "r")
-        subtasks = []
-        for subtask in read_subtasks:
-          subtask = list(subtask)
-          subtask[-2] = "1"
-          subtask = "".join(subtask)
-          subtasks.append(subtask)
-        read_subtasks.close()
+        try:
+          read_subtasks = open("tasks/" + task_to_complete +".txt", "r")
+          subtasks = []
+          for subtask in read_subtasks:
+            subtask = list(subtask)
+            subtask[-2] = "1"
+            subtask = "".join(subtask)
+            subtasks.append(subtask)
+          read_subtasks.close()
+
+          # re write the file .txt of the task
+          write_subtasks = open("tasks/" + task_to_complete + ".txt", "w")
+          for subtask in subtasks:
+            write_subtasks.write(subtask)
+          write_subtasks.close()
+        except:
+          nothing = 1
 
         # re write the file tasks.txt
         write_tasks = open("tasks.txt", "w")
         for task in tasks:
           write_tasks.write(task)
         write_tasks.close()
-
-        # re write the file .txt of the task
-        write_subtasks = open("tasks/" + task_to_complete + ".txt", "w")
-        for subtask in subtasks:
-          write_subtasks.write(subtask)
-        write_subtasks.close()
 
         print("Task completed!!!")
         sleep(1)
