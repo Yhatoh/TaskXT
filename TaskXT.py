@@ -44,7 +44,13 @@ def print_tasks(tasks, name, symbol):
       sub_priority += 1
 
 def obtain_tasks():
-  read_tasks = open("tasks.txt", "r")
+  try:
+    read_tasks = open("tasks.txt", "r")
+  except:
+    read_tasks = open("tasks.txt", "w")
+    read_tasks.close()
+    os.mkdir("./tasks")
+    read_tasks = open("tasks.txt", "r")
   menu = {"0": {}, "1": {}}
   # for each task search the subtasks
   for task in read_tasks:
